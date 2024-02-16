@@ -1,0 +1,30 @@
+1-Definir 2 variables enteras a=10 y b=30 y resultado
+2-Definir punteros a entero de ambas variables
+3-Sumar los valores a través de los punteros y guardarlos en la variable resultado
+4-Imprimir resultado
+5-Modificar el valor de la variable puntero de a a 30
+6-Imprimir los nuevos valores de a y b
+
+
+#include <stdio.h>
+
+int main() {
+    int a = 10;
+    int b = 30;
+    int resultado;
+
+    int *ptr_a = &a;
+    int *ptr_b = &b;
+
+    resultado = *ptr_a + *ptr_b;
+
+    printf("El resultado de la suma es: %d\n", resultado);
+
+    *ptr_a = 30;
+
+    printf("El nuevo valor de a es: %d\n", a);
+    printf("El nuevo valor de b es: %d\n", b);
+
+    return 0;
+}
+

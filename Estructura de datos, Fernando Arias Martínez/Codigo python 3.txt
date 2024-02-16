@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Datos de la matriz
+tamanos_arreglo = [10, 100, 500, 1000, 5000, 10000, 50000, 100000]
+tiempos_ejecucion = [0.000003, 0.000033, 0.000463, 0.001928, 0.109998, 0.162552, 9.543424, 28]
+
+# Graficar los puntos
+plt.scatter(tamanos_arreglo, tiempos_ejecucion, label='Datos')
+# Configuración del gráfico
+plt.xscale('log')  # Escala logarítmica en el eje x
+plt.yscale('log')  # Escala logarítmica en el eje y
+plt.xlabel('Tamaño del Arreglo')
+plt.ylabel('Tiempo de Ejecución (segundos)')
+plt.title('Gráfico de Dispersión')
+plt.show()

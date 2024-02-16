@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    // Declaración de los arreglos
+    float calif[] = {7, 4, 9, 0, 8, 9.2, 7.7};
+    int decimas[] = {4, 5, 5, 2, 1, 3, 1};
+    float nota_final[7]; // Arreglo para almacenar las notas finales
+    
+    // Punteros
+    float *ptr_calif = calif; // Puntero para el arreglo de calificaciones
+    int *ptr_decimas = decimas; // Puntero para el arreglo de décimas
+    float *ptr_nota_final = nota_final; // Puntero para el arreglo de notas finales
+    
+    // Cálculo de las notas finales y almacenamiento en el arreglo correspondiente
+    for (int i = 0; i < 7; i++) {
+        *(ptr_nota_final + i) = *(ptr_calif + i) + (*(ptr_decimas + i) / 10.0);
+    }
+    
+    // Imprimir la nota final de cada estudiante y la dirección en la que se guarda
+    printf("Notas finales y direcciones de almacenamiento:\n");
+    for (int i = 0; i < 7; i++) {
+        printf("Estudiante %d: Nota Final = %.1f, Dirección = %p\n", i+1, *(ptr_nota_final + i), (ptr_nota_final + i));
+    }
+    
+    // Información del puntero y su arreglo
+    printf("\nInformación del puntero y su arreglo:\n");
+    printf("Dirección del puntero ptr_calif: %p, Valor al que apunta: %.1f, Dirección del puntero: %p\n", ptr_calif, *ptr_calif, &ptr_calif);
+    printf("Dirección del puntero ptr_decimas: %p, Valor al que apunta: %d, Dirección del puntero: %p\n", ptr_decimas, *ptr_decimas, &ptr_decimas);
+    printf("Dirección del puntero ptr_nota_final: %p, Valor al que apunta: %.1f, Dirección del puntero: %p\n", ptr_nota_final, *ptr_nota_final, &ptr_nota_final);
+    
+    return 0;
+}

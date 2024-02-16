@@ -1,0 +1,18 @@
+dirección de la variable pi
+valor de la pariable pi (contenido)
+dirección del apuntador
+valor contenido del apuntador pi
+
+#include <stdio.h>
+
+int main() {
+    float pi = 3.14159;
+    float *ptr_pi = &pi;
+    
+    printf("Dirección de la variable pi: %p\n", (void*)&pi);
+    printf("Valor de la variable pi: %.5f\n", pi);
+    printf("Dirección del apuntador ptr_pi: %p\n", (void*)&ptr_pi);
+    printf("Valor contenido del apuntador pi: %.5f\n", *ptr_pi);
+    
+    return 0;
+}

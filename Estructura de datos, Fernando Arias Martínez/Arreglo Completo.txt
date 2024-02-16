@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <time.h>
+
+// Prototipo de la función aleatorios
+void aleatorios(int arreglo[], int tamano);
+
+void llenarArreglo(int arreglo[], int tamano) {
+    printf("Ingrese los elementos del arreglo:\n");
+    for (int i = 0; i < tamano; i++) {
+        printf("Elemento %d: ", i + 1);
+        scanf("%d", &arreglo[i]);
+    }
+}
+
+void imprimirArreglo(int arreglo[], int tamano) {
+    for (int i = 0; i < tamano; i++) {
+        printf("%d ", arreglo[i]);
+    }
+    printf("\n");
+}
+
+void ordenarBurbuja(int arreglo[], int tamano) {
+    for (int i = 0; i < tamano - 1; i++) {
+        for (int j = 0; j < tamano - i - 1; j++) {
+            if (arreglo[j] > arreglo[j + 1]) {
+                int temp = arreglo[j];
+                arreglo[j] = arreglo[j + 1];
+                arreglo[j + 1] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    int tamano;
+
+    printf("Ingrese el tamaño del arreglo: ");
+    scanf("%d", &tamano);
+
+    int arreglo[tamano];
+
+    // Llamada a la función aleatorios
+    aleatorios(arreglo, tamano);
+
+    printf("Arreglo original: ");
+    imprimirArreglo(arreglo, tamano);
+
+    clock_t inicio = clock();
+
+    ordenarBurbuja(arreglo, tamano);
+
+    clock_t fin = clock();
+
+    printf("Arreglo ordenado: ");
+    imprimirArreglo(arreglo, tamano);
+
+    double tiempoTranscurrido = ((double) (fin - inicio)) / CLOCKS_PER_SEC;
+
+    printf("\nTabla de medición:\n");
+    printf("| Tamaño del arreglo | Tiempo de ejecución |\n");
+    printf("|--------------------|---------------------|\n");
+    printf("| %-18d | %-20lf|\n", tamano, tiempoTranscurrido);
+
+    return 0;
+}
+
+// Implementación de la función aleatorios
+void aleatorios(int arreglo[], int tamano) {
+    srand(time(NULL));
+
+    for (int i = 0; i < tamano; i++) {
+        arreglo[i] = rand() % 100;
+    }
+}
